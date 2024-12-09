@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-
+import {ThemeProvider} from 'styled-components';
+import  {css} from 'styled-components';
 import Task01 from './../../01/Task01';
 import Task02 from './../../02/Task02';
 import Task03 from './../../03/Task03';
@@ -8,9 +9,50 @@ import Task04 from './../../04/Task04';
 import Task05 from './../../05/Task05';
 
 
+const theme = {
+    alert:{
+    primary: css`
+   color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;`,
+    secondary: css`
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+    `
+},
+button:{
+    color: {
+        primary: css`
+        color: #fff;
+         background-color: #007bff;
+         border-color: #007bff;`,
+         secondary: css`
+           color: #fff;
+         background-color: #6c757d;
+         border-color: #6c757d;
+`
+    },
+    size: {
+        lg: css`
+        padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;`,
+        sm: css`
+          padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;`
+    },
+
+},
+}
+
 const App = () => {
     return (
         <>
+        <ThemeProvider theme={theme}>
             <Container fluid>
                 <Row>
                     <Col>
@@ -25,6 +67,7 @@ const App = () => {
                 <Task04/>
                 <Task05/>
             </Container>
+            </ThemeProvider>
         </>
     )
 }
